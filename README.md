@@ -28,13 +28,15 @@ sgpet/
 │   ├── src/
 │   │   ├── config/          # variáveis de ambiente e cliente do Supabase
 │   │   ├── middlewares/     # autenticação, autorização por perfil e erros
-│   │   └── modules/         # um módulo por funcionalidade (rotas, controller, service, validações)
+│   │   ├── shared/          # erros e validações comuns
+│   │   └── modules/         # um módulo por funcionalidade (rotas, service, repository, validações)
 │   │       ├── auth/        # 3.1 Login e perfis
 │   │       ├── produtos/    # 3.2 Cadastro de produtos
 │   │       ├── estoque/     # 3.3 Controle de estoque
 │   │       ├── clientes/    # 3.4 Cadastro de clientes e pets
 │   │       ├── vendas/      # 3.5 Registro de vendas (PDV)
 │   │       └── relatorios/  # 3.6 Relatório de vendas
+│   ├── scripts/             # utilitários (ex.: criar usuários de teste)
 │   └── tests/
 │       └── unit/            # testes unitários (Jest)
 ├── frontend/                # React + Vite + Material UI (Vercel)
@@ -53,6 +55,7 @@ sgpet/
 │           ├── Vendas/
 │           └── Relatorios/
 ├── supabase/
+│   ├── config.toml          # configuração da Supabase CLI (ambiente local)
 │   ├── migrations/          # scripts SQL de criação das tabelas
 │   └── seed/                # dados fictícios para desenvolvimento e apresentação
 └── docs/                    # histórias de usuário, manual de uso e demais documentos
