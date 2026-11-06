@@ -33,7 +33,7 @@ npm run dev            # http://localhost:3333
 | `npm run test:unit` | Roda somente os 85 testes unitários |
 | `npm run test:integration` | Roda os 23 testes HTTP com persistência em memória |
 | `npm run test:coverage` | Roda os testes e gera cobertura em `coverage/` |
-| `npm run criar-usuarios` | Cria os usuários de teste `SEED_*` do `.env` |
+| `npm run criar-usuarios` | Cria os usuários de teste `SEED_*` do `.env` (senha vazia = gera uma aleatória e grava no `.env`) |
 
 ## Perfis
 
