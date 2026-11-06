@@ -19,6 +19,7 @@ npm run dev            # http://localhost:5173
 | `npm run build` | Gera a versão de produção em `dist/` (usado na Vercel) |
 | `npm run preview` | Serve a pasta `dist/` localmente |
 | `npm run lint` | Verifica o código com o oxlint |
+| `npm test` | Roda os 15 testes das funções de busca e validação de produtos |
 
 Na Vercel: diretório raiz `frontend`, comando de build `npm run build`, saída `dist` e a variável `VITE_API_URL` com o endereço da API no Render. O [`vercel.json`](vercel.json) faz as rotas (ex.: `/produtos`) funcionarem ao recarregar a página.
 

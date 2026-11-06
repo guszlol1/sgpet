@@ -28,21 +28,9 @@ import { useAuth } from '../../contexts/AuthContext';
 import { listarProdutos, removerProduto } from '../../api/produtos';
 import ConfirmarDialog from '../../components/ConfirmarDialog';
 import ProdutoFormDialog from './ProdutoFormDialog';
+import { filtrarProdutos } from './filtrarProdutos';
 
 const formatarPreco = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format;
-
-function normalizar(texto) {
-  return texto.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-}
-
-// US03: busca por nome (parcial, sem diferenciar acentos e maiúsculas) ou por código de barras.
-function filtrar(produtos, busca) {
-  const termo = normalizar(busca.trim());
-  if (!termo) return produtos;
-  return produtos.filter(
-    (p) => normalizar(p.nome).includes(termo) || p.codigoBarras.includes(termo)
-  );
-}
 
 export default function ProdutosPage() {
   const { ehGerente } = useAuth();
@@ -75,7 +63,7 @@ export default function ProdutosPage() {
     buscarProdutos();
   }
 
-  const visiveis = useMemo(() => filtrar(produtos, busca), [produtos, busca]);
+  const visiveis = useMemo(() => filtrarProdutos(produtos, busca), [produtos, busca]);
   const categorias = useMemo(
     () => [...new Set(produtos.map((p) => p.categoria))].sort((a, b) => a.localeCompare(b, 'pt-BR')),
     [produtos]
