@@ -29,7 +29,10 @@ npm run dev            # http://localhost:3333
 |---|---|
 | `npm run dev` | Sobe a API e reinicia a cada alteração |
 | `npm start` | Sobe a API (usado no Render) |
-| `npm test` | Roda os testes do Jest (pasta `tests/`) |
+| `npm test` | Roda os 108 testes unitários e de contrato HTTP, sem acessar o Supabase real |
+| `npm run test:unit` | Roda somente os 85 testes unitários |
+| `npm run test:integration` | Roda os 23 testes HTTP com persistência em memória |
+| `npm run test:coverage` | Roda os testes e gera cobertura em `coverage/` |
 | `npm run criar-usuarios` | Cria os usuários de teste `SEED_*` do `.env` |
 
 ## Perfis

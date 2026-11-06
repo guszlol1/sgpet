@@ -11,8 +11,11 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
-    "test": "jest --passWithNoTests",
-    "criar-usuarios": "node scripts/criar-usuarios.js"
+    "test": "jest --runInBand",
+    "criar-usuarios": "node scripts/criar-usuarios.js",
+    "test:unit": "jest --runInBand tests/unit",
+    "test:integration": "jest --runInBand tests/integration",
+    "test:coverage": "jest --runInBand --coverage"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
@@ -27,6 +30,13 @@
     "testEnvironment": "node",
     "roots": [
       "<rootDir>/tests"
+    ],
+    "collectCoverageFrom": [
+      "src/modules/auth/**/*.js",
+      "src/modules/produtos/**/*.js",
+      "src/middlewares/**/*.js",
+      "src/shared/**/*.js",
+      "src/app.js"
     ]
   }
 }

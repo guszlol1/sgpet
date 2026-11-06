@@ -66,3 +66,7 @@ sgpet/
 - Caio Monteiro Arraes – Gerente de Projeto e Front-end
 - Gustavo Rossini Ports – Analista de Requisitos, Testes e Desenvolvedor
 - Gustavo dos Santos da Boa Morte – Tech Lead e Back-end
+
+## Testes da Sprint 1
+
+Consulte [como executar os testes e o que foi validado](docs/sprint1-validacao.md). Os testes automatizados de login, produtos e busca rodam sem credenciais reais.
