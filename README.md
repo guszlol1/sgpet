@@ -70,3 +70,7 @@ sgpet/
 ## Testes da Sprint 1
 
 Consulte [como executar os testes e o que foi validado](docs/sprint1-validacao.md). Os testes automatizados de login, produtos e busca rodam sem credenciais reais.
+
+## Sprint 2
+
+Estoque e cadastro de clientes/pets implementados. Consulte [funcionalidades, endpoints, migração e roteiro de validação](docs/sprint2.md). A migração precisa ser aplicada pelo responsável pelo Supabase antes de usar as novas telas no ambiente real.

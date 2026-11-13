@@ -29,9 +29,9 @@ npm run dev            # http://localhost:3333
 |---|---|
 | `npm run dev` | Sobe a API e reinicia a cada alteração |
 | `npm start` | Sobe a API (usado no Render) |
-| `npm test` | Roda os 108 testes unitários e de contrato HTTP, sem acessar o Supabase real |
-| `npm run test:unit` | Roda somente os 85 testes unitários |
-| `npm run test:integration` | Roda os 23 testes HTTP com persistência em memória |
+| `npm test` | Roda os testes unitários e de contrato HTTP, sem acessar o Supabase real |
+| `npm run test:unit` | Roda somente os testes unitários |
+| `npm run test:integration` | Roda os testes HTTP com persistência em memória |
 | `npm run test:coverage` | Roda os testes e gera cobertura em `coverage/` |
 | `npm run criar-usuarios` | Cria os usuários de teste `SEED_*` do `.env` (senha vazia = gera uma aleatória e grava no `.env`) |
 
@@ -122,3 +122,9 @@ src/
 ```
 
 Cada módulo separa as regras (`*.service.js` e `*.validacao.js`) do acesso ao Supabase (`*.repository.js`). Nos testes unitários, basta passar um repository falso para `criarAuthService` ou `criarProdutosService`, ou serviços falsos para `criarApp`.
+
+## Sprint 2 — estoque, clientes e pets
+
+Os novos endpoints e as regras estão em [docs/sprint2.md](../docs/sprint2.md). Aplique a nova migração no ambiente correto antes de iniciar o servidor.
+
+Use também `npm run test:db` para validar as migrações e transações em um PostgreSQL isolado (PGlite), sem Docker, credenciais ou acesso ao Supabase remoto.

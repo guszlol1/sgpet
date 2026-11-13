@@ -15,7 +15,8 @@
     "criar-usuarios": "node scripts/criar-usuarios.js",
     "test:unit": "jest --runInBand tests/unit",
     "test:integration": "jest --runInBand tests/integration",
-    "test:coverage": "jest --runInBand --coverage"
+    "test:coverage": "jest --runInBand --coverage",
+    "test:db": "node --test --test-concurrency=1 tests/database/*.test.cjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
@@ -24,6 +25,7 @@
     "express": "^5.3.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.16",
     "jest": "^30.5.2"
   },
   "jest": {
@@ -32,11 +34,14 @@
       "<rootDir>/tests"
     ],
     "collectCoverageFrom": [
-      "src/modules/auth/**/*.js",
-      "src/modules/produtos/**/*.js",
+      "src/modules/**/*.js",
       "src/middlewares/**/*.js",
       "src/shared/**/*.js",
       "src/app.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/tests/database/"
     ]
   }
 }

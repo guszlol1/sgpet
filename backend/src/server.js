@@ -1,3 +1,7 @@
+const { criarEstoqueRepository } = require('./modules/estoque/estoque.repository');
+const { criarEstoqueService } = require('./modules/estoque/estoque.service');
+const { criarClientesRepository } = require('./modules/clientes/clientes.repository');
+const { criarClientesService } = require('./modules/clientes/clientes.service');
 const { carregarEnv } = require('./config/env');
 const { criarClienteAdmin, criarFabricaClienteAuth } = require('./config/supabase');
 const { criarApp } = require('./app');
@@ -13,6 +17,8 @@ const criarClienteAuth = criarFabricaClienteAuth(env);
 const app = criarApp({
   authService: criarAuthService(criarAuthRepository({ supabaseAdmin, criarClienteAuth })),
   produtosService: criarProdutosService(criarProdutosRepository({ supabaseAdmin })),
+  estoqueService: criarEstoqueService(criarEstoqueRepository({ supabaseAdmin })),
+  clientesService: criarClientesService(criarClientesRepository({ supabaseAdmin })),
   corsOrigens: env.corsOrigens,
 });
 
