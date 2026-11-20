@@ -22,6 +22,7 @@ jobs:
           cache-dependency-path: backend/package-lock.json
       - run: npm ci
       - run: npm run test:coverage
+      - run: npm run test:db
 
   frontend:
     runs-on: ubuntu-latest
