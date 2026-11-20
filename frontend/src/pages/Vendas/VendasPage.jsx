@@ -239,7 +239,7 @@ export default function VendasPage() {
           )}
 
           <TableContainer component={Paper} variant="outlined" sx={{ mt: 2 }}>
-            <Table size="small" sx={{ minWidth: 620 }}>
+            <Table size="small" sx={{ minWidth: 520 }}>
               <TableHead>
                 <TableRow>
                   <TableCell>Produto</TableCell>
@@ -261,8 +261,11 @@ export default function VendasPage() {
                     <TableRow key={item.produtoId} hover>
                       <TableCell>
                         <Typography variant="body2">{item.nome}</Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          {item.codigoBarras} · {item.saldo} disponível(is)
+                        <Typography variant="caption" color="text.secondary" sx={{ display: 'block' }}>
+                          {item.codigoBarras}
+                        </Typography>
+                        <Typography variant="caption" color="text.secondary" sx={{ display: 'block' }}>
+                          {item.saldo} em estoque
                         </Typography>
                       </TableCell>
                       <TableCell align="right">{formatarMoeda(item.preco)}</TableCell>
