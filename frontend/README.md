@@ -31,8 +31,8 @@ Na Vercel: diretório raiz `frontend`, comando de build `npm run build`, saída 
 | `/produtos` | Lista, busca (nome ou código) e cadastro de produtos | todos (incluir, editar e remover: só gerente) | Sprint 1 |
 | `/estoque` | Controle de estoque | gerente | Sprint 2 |
 | `/clientes` | Clientes e pets | todos | Sprint 2 (tela provisória) |
-| `/vendas` | Registro de vendas (PDV) | todos | Sprint 3 (tela provisória) |
-| `/relatorios` | Relatório de vendas | gerente | Sprint 3 (tela provisória) |
+| `/vendas` | Registro de vendas (PDV): busca/leitor de código, carrinho, pagamento, F2 para finalizar | todos | Sprint 3 |
+| `/relatorios` | Relatório de vendas por período | gerente | Sprint 3 |
 
 ## Organização do código
 
@@ -63,3 +63,7 @@ src/
 ## Sprint 2
 
 Estoque permite registrar entradas e consultar saldo e alertas. Clientes e pets permite cadastrar um cliente com vários animais, editar contatos, adicionar pets e editar cada animal. As permissões continuam definidas na API e na navegação. Detalhes em [docs/sprint2.md](../docs/sprint2.md).
+
+## Sprint 3
+
+O PDV busca o produto por nome ou pelo código de barras (o leitor digita o código e envia Enter), soma itens repetidos, não deixa passar do saldo e mostra subtotal e total em tempo real. A venda é finalizada com o botão ou com F2; o total gravado é sempre o calculado pela API. Depois da venda, a tela avisa os produtos que chegaram ao estoque mínimo. O relatório (só gerente) filtra por período e mostra quantidade de vendas, valor total e a lista das vendas. As regras de cálculo ficam em `pages/Vendas/carrinho.js` e `pages/Relatorios/periodo.js`, testadas em `tests/sprint3.test.js`. Detalhes em [docs/sprint3.md](../docs/sprint3.md).

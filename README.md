@@ -74,3 +74,7 @@ Consulte [como executar os testes e o que foi validado](docs/sprint1-validacao.m
 ## Sprint 2
 
 Estoque e cadastro de clientes/pets implementados. Consulte [funcionalidades, endpoints, migração e roteiro de validação](docs/sprint2.md). A migração precisa ser aplicada pelo responsável pelo Supabase antes de usar as novas telas no ambiente real.
+
+## Sprint 3
+
+Registro de vendas (PDV) com baixa automática de estoque e relatório de vendas por período. Consulte [regras, endpoints, migração e verificação](docs/sprint3.md) e o [roteiro de testes do fluxo completo](docs/roteiro-testes-fluxo-completo.md) para a Semana Final.

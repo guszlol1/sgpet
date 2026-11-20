@@ -4,10 +4,13 @@ const { criarAuthService } = require('../../src/modules/auth/auth.service');
 const { criarProdutosService } = require('../../src/modules/produtos/produtos.service');
 const { criarEstoqueService } = require('../../src/modules/estoque/estoque.service');
 const { criarClientesService } = require('../../src/modules/clientes/clientes.service');
+const { criarVendasService } = require('../../src/modules/vendas/vendas.service');
+const { criarRelatoriosService } = require('../../src/modules/relatorios/relatorios.service');
+const { criarVendasRepositoryMemoria } = require('../../src/modules/vendas/vendas.memoria');
 const PRODUTO_ID = '11111111-1111-4111-8111-111111111111';
 const GERENTE_ID = '22222222-2222-4222-8222-222222222222';
 const ATENDENTE_ID = '33333333-3333-4333-8333-333333333333';
-function criarCenario() {
+function criarCenario({ agora } = {}) {
   let sequencia = 100;
   const novoId = () => '00000000-0000-4000-8000-' + String(++sequencia).padStart(12, '0');
   const produtos = new Map([
@@ -135,13 +138,17 @@ function criarCenario() {
       return salvo;
     },
   };
+  // Vendas e relatório (Sprint 3) usam os mesmos Maps de produtos e clientes.
+  const vendasRepo = criarVendasRepositoryMemoria({ produtos, clientes, usuarios, agora, novoId });
   const app = criarApp({
     authService,
     produtosService: criarProdutosService(produtosRepo),
     estoqueService: criarEstoqueService(estoqueRepo),
     clientesService: criarClientesService(clientesRepo),
+    vendasService: criarVendasService(vendasRepo),
+    relatoriosService: criarRelatoriosService(vendasRepo),
     corsOrigens: ['http://localhost:5173', 'http://127.0.0.1:5173'],
   });
-  return { app, produtos, clientes, pets, entradas, usuarios };
+  return { app, produtos, clientes, pets, entradas, usuarios, vendas: vendasRepo.vendas };
 }
 module.exports = { criarCenario, PRODUTO_ID, GERENTE_ID, ATENDENTE_ID };
